@@ -9,14 +9,17 @@ import java.io.ObjectOutputStream;
 
 public class Main {
 	private static ListPegawai listPegawai = new ListPegawai();
+	private static KelolaLembur kelolaLembur = new KelolaLembur();
+	
+	private static BufferedReader reader;
 	
 	public static void main(String[] args) {
-		readData();
-		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				System.in));
+		readDataPegawai();
 		System.out.println("Login Staff");
 		try {
+			reader = new BufferedReader(new InputStreamReader(
+					System.in));
+			
 			System.out.print("Masukkan id:");
 			int id = Integer.parseInt(reader.readLine());
 			System.out.print("Masukkan password:");
@@ -41,7 +44,7 @@ public class Main {
 				staff.setAlamat(alamat);
 				staff.setTlp(tlp);
 				listPegawai.addPegawai(staff);
-				writeData();
+				writeDataPegawai();
 			}else{
 				String menu = "";
 				do{
@@ -57,6 +60,11 @@ public class Main {
 					System.out.println("exit");
 					System.out.print("Silahkan Pilih Menu:");
 					menu = reader.readLine();
+					
+					if(menu.equals("1")){
+						
+					}
+					
 				}while(!menu.equals("exit"));
 			}
 		} catch (IOException e) {
@@ -65,7 +73,19 @@ public class Main {
 
 	}
 	
-	public static void readData(){
+	public static void menuAjukanLembur(Staff staff) throws IOException{
+		System.out.println("Anda akan mengajukan Lembur");
+		System.out.print("Masukkan tanggal Lembur");
+		String tanggalLemburStr = reader.readLine();
+		System.out.print("Masukkan jam Mulai Lembur");
+		String jamMulaiLemburStr = reader.readLine();
+		System.out.print("Masukkan jam Selesai Lembur");
+		String jamSelesaiLemburStr = reader.readLine();
+		System.out.print("Masukkan Keterangan Lembur");
+		String keterangan = reader.readLine();
+	}
+	
+	public static void readDataPegawai(){
 		try{
 			FileInputStream door = new FileInputStream("pegawai.peg"); 
 			ObjectInputStream reader = new ObjectInputStream(door); 
@@ -79,17 +99,42 @@ public class Main {
 		}
 	}
 	
-	public static void writeData(){
+	public static void writeDataPegawai(){
 			// Serialize data object to a file
 			try {
 				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("pegawai.peg"));
 				out.writeObject(listPegawai);
 				out.close();
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	}
+	
+	public static void readDataLembur(){
+		try{
+			FileInputStream door = new FileInputStream("lembur.lem"); 
+			ObjectInputStream reader = new ObjectInputStream(door); 
+			kelolaLembur = (KelolaLembur) reader.readObject();
+			reader.close();
+		}catch (IOException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeDataLembur(){
+			// Serialize data object to a file
+			try {
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("lembur.lem"));
+				out.writeObject(kelolaLembur);
+				out.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			

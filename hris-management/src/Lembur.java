@@ -1,7 +1,10 @@
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class Lembur {
+public class Lembur implements Serializable{
+	private static final long serialVersionUID = -2826958021280897727L;
+	
 	private int idLembur;
 	private Date tanggalPengajuan;
 	private Date jamMulai;
