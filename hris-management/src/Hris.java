@@ -8,7 +8,7 @@ import java.util.List;
 public class Hris implements Serializable{
 	private static final long serialVersionUID = 6313470848522073042L;
 	public static final String NEW = "NEW";
-	private List<Division> listDivision;
+	private List<Division> listDivision = new ArrayList<Division>();
 	private List<Pegawai> listPegawai = new ArrayList<Pegawai>();
 	private List<Lembur> listLembur = new ArrayList<Lembur>();	
 
@@ -39,6 +39,19 @@ public class Hris implements Serializable{
 
 	public void setListDivision(List<Division> listDivision) {
 		this.listDivision = listDivision;
+	}
+	
+	public void printDivision(){
+
+		for(Division div:listDivision){
+			System.out.println("["+div.getId()+"] " + div.getNama());
+
+			for(Department dept:div.getListDepartment()){
+				System.out.println("["+dept.getId()+"] " + dept.getNama());
+
+			}
+
+		}
 	}
 	
 	public void ajukanLembur(Staff staff, Date tanggalLembur, Date jamMulai, Date jamSelesai, String keterangan, String status){

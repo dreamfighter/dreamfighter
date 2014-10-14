@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Department implements Serializable{
 	private static final long serialVersionUID = 2789574685205899870L;
+	private int id;
 	private String nama;
 	private List<Staff> listStaff;
 	
@@ -18,6 +19,12 @@ public class Department implements Serializable{
 	}
 	public void setListStaff(List<Staff> listStaff) {
 		this.listStaff = listStaff;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

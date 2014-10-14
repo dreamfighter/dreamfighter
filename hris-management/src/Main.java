@@ -33,7 +33,9 @@ public class Main {
 			if(pegawai==null){
 				System.out.println("Selamat Datang di System Management Lembur");
 				System.out.println("Maaf Data Pegawai Anda tidak ditemukan silahkan daftarkan diri anda");
-				System.out.print("Silahkan Pilih Department : ");
+				hris.printDivision();
+				System.out.print("Silahkan Pilih Department ID : ");
+				int idDept = Integer.parseInt(reader.readLine());
 				System.out.print("Masukkan id      :");
 				int idPegawai = Integer.parseInt(reader.readLine());
 				System.out.print("Masukkan nama    :");
