@@ -1,7 +1,8 @@
 import java.io.Serializable;
 
-public class Staff extends Pegawai implements Serializable{
-	private static final long serialVersionUID = -5470164101185207300L;
+
+public class DeptHead extends Pegawai implements Serializable{
+	private static final long serialVersionUID = 6799583478563051613L;
 	private Department department;
 	
 	public Department getDepartment() {
