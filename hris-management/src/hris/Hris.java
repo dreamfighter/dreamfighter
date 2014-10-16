@@ -13,7 +13,8 @@ public class Hris implements Serializable{
 	public static final String REJECTED = "REJECTED";
 	private List<Division> listDivision = new ArrayList<Division>();
 	private List<Pegawai> listPegawai = new ArrayList<Pegawai>();
-	private List<Lembur> listLembur = new ArrayList<Lembur>();	
+	private List<Lembur> listLembur = new ArrayList<Lembur>();
+	private List<Training> listTraining = new ArrayList<Training>();
 
 	public List<Pegawai> getListPegawai() {
 		return listPegawai;
@@ -84,6 +85,30 @@ public class Hris implements Serializable{
 		lembur.setStatusApprovalDivHead(APPROVED);
 	}
 	
+	public void rejectTraining(DivHead divHead,Training training){
+		training.setApprovadDivHeadOn(new Date());
+		training.setApprovedDivHeadBy(divHead);
+		training.setStatusApprovalDivHead(REJECTED);
+	}
+	
+	public void approveTraining(DeptHead deptHead,Training training){
+		training.setApprovadDeptHeadOn(new Date());
+		training.setApprovedDeptHeadBy(deptHead);
+		training.setStatusApprovalDeptHead(APPROVED);
+	}
+	
+	public void rejectTraining(DeptHead deptHead,Training training){
+		training.setApprovadDeptHeadOn(new Date());
+		training.setApprovedDeptHeadBy(deptHead);
+		training.setStatusApprovalDeptHead(REJECTED);
+	}
+	
+	public void approveTraining(DivHead divHead,Training training){
+		training.setApprovadDivHeadOn(new Date());
+		training.setApprovedDivHeadBy(divHead);
+		training.setStatusApprovalDivHead(APPROVED);
+	}
+	
 	public void rejectLembur(DivHead divHead,Lembur lembur){
 		lembur.setApprovadDivHeadOn(new Date());
 		lembur.setApprovedDivHeadBy(divHead);
@@ -103,6 +128,19 @@ public class Hris implements Serializable{
 		lembur.setStatusApprovalDivHead(status);
 		
 		this.listLembur.add(lembur);
+	}
+	
+	public void ajukanTraining(Staff staff, Date tanggalTraining, Date jamMulai, Date jamSelesai, String namaTraining, String status){
+		Training training = new Training();
+		training.setNama(namaTraining);
+		training.setIdTraining(listLembur.size()+1);
+		training.setTanggalPengajuan(new Date());
+		training.setTanggalTraining(tanggalTraining);
+		training.setStaff(staff);
+		training.setStatusApprovalDeptHead(status);
+		training.setStatusApprovalDivHead(status);
+		
+		this.listTraining.add(training);
 	}
 	
 	public List<Lembur> getListLembur() {
@@ -223,6 +261,36 @@ public class Hris implements Serializable{
 		System.out.println("==============================================================================================================================");
 		System.out.println("id   |status depthead |status divhead |tanggal lembur |tanggal pengajuan |jam mulai |jam selesai |keterangan                  ");
 		System.out.println("==============================================================================================================================");
+	}
+	
+	private void printHeaderTraining(Staff staff){
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("History Training : " + staff.getNama());
+		System.out.println("=========================================================================================================");
+		System.out.println("id   |status depthead |status divhead |tanggal Training |tanggal pengajuan |nama training                ");
+		System.out.println("=========================================================================================================");
+	}
+	
+	private void printHeaderTraining(DivHead divHead){
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Daftar Training Division: " + divHead.getDivision().getNama());
+		System.out.println("=========================================================================================================");
+		System.out.println("id   |status depthead |status divhead |tanggal Training |tanggal pengajuan |nama training                ");
+		System.out.println("=========================================================================================================");
+	}
+	
+	private void printHeaderTraining(DeptHead deptHead){
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Daftar Training Department: " + deptHead.getDepartment().getNama());
+		System.out.println("=========================================================================================================");
+		System.out.println("id   |status depthead |status divhead |tanggal Training |tanggal pengajuan |nama training                ");
+		System.out.println("=========================================================================================================");
 	}
 	
 	public void printHistoryLembur(DivHead divHead){

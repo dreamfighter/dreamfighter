@@ -75,6 +75,9 @@ public class Main {
 						System.out.println("1.Ajukan Lembur");
 						System.out.println("2.Lihat History lembur");
 						System.out.println("3.Lihat Status lembur");
+						System.out.println("4.Ajukan Training");
+						System.out.println("5.Lihat History lembur");
+						System.out.println("6.Lihat Status lembur");
 						System.out.println("exit");
 						System.out.print("Silahkan Pilih Menu:");
 						menu = reader.readLine();
@@ -97,6 +100,9 @@ public class Main {
 						System.out.println("2.Lihat Daftar Staff");
 						System.out.println("3.Lihat Daftar Lembur");
 						System.out.println("4.Lihat Daftar History Lembur");
+						System.out.println("5.Approve/Reject Training");
+						System.out.println("3.Lihat Daftar Training");
+						System.out.println("4.Lihat Daftar History Training");
 						System.out.println("exit");
 						System.out.print("Silahkan Pilih Menu:");
 						menu = reader.readLine();
@@ -121,6 +127,9 @@ public class Main {
 						System.out.println("2.Lihat Daftar Staff");
 						System.out.println("3.Lihat Daftar Lembur");
 						System.out.println("4.Lihat Daftar History Lembur");
+						System.out.println("1.Approve/Reject Training");
+						System.out.println("5.Lihat Daftar Training");
+						System.out.println("6.Lihat Daftar History Training");
 						System.out.println("exit");
 						System.out.print("Silahkan Pilih Menu:");
 						menu = reader.readLine();
