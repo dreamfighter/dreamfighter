@@ -11,9 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Main {
-	//private static ListPegawai listPegawai 			= new ListPegawai();
 	private static Hris hris 	= new Hris();
-	//private static KelolaLembur kelolaLembur 		= new KelolaLembur();
 	
 	private static BufferedReader reader;
 	
@@ -50,7 +48,7 @@ public class Main {
 				pegawai.setNama(nama);
 				pegawai.setAlamat(alamat);
 				pegawai.setTlp(tlp);
-				hris.addPegawai(pegawai);
+				hris.tambahPegawai(pegawai);
 				writeDataHris();
 			}else{
 				String menu = "";
@@ -76,8 +74,14 @@ public class Main {
 						System.out.println("2.Lihat History lembur");
 						System.out.println("3.Lihat Status lembur");
 						System.out.println("4.Ajukan Training");
-						System.out.println("5.Lihat History lembur");
-						System.out.println("6.Lihat Status lembur");
+						System.out.println("5.Lihat History Training");
+						System.out.println("6.Lihat Status Training");
+						System.out.println("7.Lihat Event");
+						System.out.println("8.Daftar Event");
+						if(hris.isHrd(pegawai)){
+							System.out.println("9.Tambah Event");
+						}
+												
 						System.out.println("exit");
 						System.out.print("Silahkan Pilih Menu:");
 						menu = reader.readLine();
@@ -85,9 +89,21 @@ public class Main {
 						if(menu.equals("1")){
 							menuAjukanLembur((Staff)pegawai);
 						}else if(menu.equals("2")){
-							hris.printHistoryLembur((Staff)pegawai);
+							hris.getKelolaLembur().tampilkanHistoryLembur((Staff)pegawai);
 						}else if(menu.equals("3")){
 							menuStatusLembur((Staff)pegawai);
+						}else if(menu.equals("4")){
+							menuAjukanTraining((Staff)pegawai);
+						}else if(menu.equals("5")){
+							hris.getKelolaTraining().tampilkanHistoryTraining((Staff)pegawai);
+						}else if(menu.equals("6")){
+							menuStatusTraining((Staff)pegawai);
+						}else if(menu.equals("7")){
+							hris.getKelolaEvent().tampilkanEvent();
+						}else if(menu.equals("8")){
+							//menuStatusTraining((Staff)pegawai);
+						}else if(menu.equals("9") && hris.isHrd(pegawai)){
+							//menuStatusTraining((Staff)pegawai);
 						}
 						
 					}while(!menu.equals("exit"));
@@ -101,8 +117,10 @@ public class Main {
 						System.out.println("3.Lihat Daftar Lembur");
 						System.out.println("4.Lihat Daftar History Lembur");
 						System.out.println("5.Approve/Reject Training");
-						System.out.println("3.Lihat Daftar Training");
-						System.out.println("4.Lihat Daftar History Training");
+						System.out.println("6.Lihat Daftar Training");
+						System.out.println("7.Lihat Daftar History Training");
+						System.out.println("8.Lihat Event");
+						System.out.println("9.Daftar Event");
 						System.out.println("exit");
 						System.out.print("Silahkan Pilih Menu:");
 						menu = reader.readLine();
@@ -110,11 +128,17 @@ public class Main {
 						if(menu.equals("1")){
 							menuApproveRejectLembur((DeptHead)pegawai);
 						}else if(menu.equals("2")){
-							hris.printDaftarStaff(((DeptHead)pegawai).getDepartment());
+							hris.tampilkanDaftarStaff(((DeptHead)pegawai).getDepartment());
 						}else if(menu.equals("3")){
-							hris.printDaftarLembur((DeptHead)pegawai);
+							hris.getKelolaLembur().tampilkanDaftarLembur((DeptHead)pegawai);
 						}else if(menu.equals("4")){
-							hris.printHistoryLembur((DeptHead)pegawai);
+							hris.getKelolaLembur().tampilkanHistoryLembur((DeptHead)pegawai);
+						}else if(menu.equals("5")){
+							menuApproveRejectTraining((DeptHead)pegawai);
+						}else if(menu.equals("6")){
+							hris.getKelolaTraining().tampilkanDaftarTraining((DeptHead)pegawai);
+						}else if(menu.equals("7")){
+							hris.getKelolaTraining().tampilkanHistoryTraining((DeptHead)pegawai);
 						}
 						
 					}while(!menu.equals("exit"));
@@ -127,9 +151,11 @@ public class Main {
 						System.out.println("2.Lihat Daftar Staff");
 						System.out.println("3.Lihat Daftar Lembur");
 						System.out.println("4.Lihat Daftar History Lembur");
-						System.out.println("1.Approve/Reject Training");
-						System.out.println("5.Lihat Daftar Training");
-						System.out.println("6.Lihat Daftar History Training");
+						System.out.println("5.Approve/Reject Training");
+						System.out.println("6.Lihat Daftar Training");
+						System.out.println("7.Lihat Daftar History Training");
+						System.out.println("8.Lihat Event");
+						System.out.println("9.Daftar Event");
 						System.out.println("exit");
 						System.out.print("Silahkan Pilih Menu:");
 						menu = reader.readLine();
@@ -137,11 +163,17 @@ public class Main {
 						if(menu.equals("1")){
 							menuApproveRejectLembur((DivHead)pegawai);
 						}else if(menu.equals("2")){
-							hris.printDaftarStaff(((DivHead)pegawai).getDivision());
+							hris.tampilkanDaftarStaff(((DivHead)pegawai).getDivision());
 						}else if(menu.equals("3")){
-							hris.printDaftarLembur((DivHead)pegawai);
+							hris.getKelolaLembur().tampilkanDaftarLembur((DivHead)pegawai);
 						}else if(menu.equals("4")){
-							hris.printHistoryLembur((DivHead)pegawai);
+							hris.getKelolaLembur().tampilkanHistoryLembur((DivHead)pegawai);
+						}else if(menu.equals("5")){
+							menuApproveRejectTraining((DivHead)pegawai);
+						}else if(menu.equals("6")){
+							hris.getKelolaTraining().tampilkanDaftarTraining((DivHead)pegawai);
+						}else if(menu.equals("7")){
+							hris.getKelolaTraining().tampilkanHistoryTraining((DivHead)pegawai);
 						}
 						
 					}while(!menu.equals("exit"));
@@ -154,14 +186,14 @@ public class Main {
 	}
 	
 	public static void menuApproveRejectLembur(DeptHead deptHead) throws IOException{
-		hris.printDaftarLembur(deptHead);
+		hris.getKelolaLembur().tampilkanDaftarLembur(deptHead);
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Anda akan melakukan approval Lembur");
 		System.out.print("Masukkan id lembur yang akan di approve/reject : ");
 		String idLemburStr = reader.readLine();
 		
-		Lembur lembur = hris.getLemburByDeptHeadAndId(deptHead, Integer.parseInt(idLemburStr));
+		Lembur lembur = hris.getKelolaLembur().cariLemburMenurutId(deptHead, Integer.parseInt(idLemburStr));
 		
 		System.out.println("");
 		System.out.println("");
@@ -190,23 +222,111 @@ public class Main {
 		System.out.print("pilih : ");
 		String pilihStr = reader.readLine();
 		if(pilihStr.equals("1")){
-			hris.approveLembur(deptHead, lembur);
+			hris.approve(deptHead, lembur);
 		}else if(pilihStr.equals("2")){
-			hris.rejectLembur(deptHead, lembur);
+			hris.reject(deptHead, lembur);
+		}
+		writeDataHris();
+		
+	}
+	
+	public static void menuApproveRejectTraining(DeptHead deptHead) throws IOException{
+		hris.getKelolaTraining().tampilkanDaftarTraining(deptHead);
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Anda akan melakukan approval Training");
+		System.out.print("Masukkan id training yang akan di approve/reject : ");
+		String idLemburStr = reader.readLine();
+		
+		Training training = hris.getKelolaTraining().cariTrainingMenurutId(deptHead, Integer.parseInt(idLemburStr));
+		
+		System.out.println("");
+		System.out.println("");
+		
+		if(training==null){
+			System.out.println("Maaf Data Training tidak ditemukan!");
+		}else{
+
+			SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
+			
+			System.out.println("Data Training Staff adalah sebagai berikut : ");
+			System.out.println("id pegawai         : " + training.getStaff().getIdPegawai());
+			System.out.println("nama pegawai       : " + training.getStaff().getNama());
+			System.out.println("tanggal pengajuan  : " + sdf.format(training.getTanggalPengajuan()));
+			System.out.println("tanggal training   : " + sdf.format(training.getTanggalTraining()));
+			System.out.println("nama training      : " + training.getNama());
+			System.out.println("lokasi training    : " + training.getLokasi());
+			
+		}
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("pilih 1 untuk approve     ");
+		System.out.println("pilih 2 untuk reject      ");
+		System.out.print("pilih : ");
+		String pilihStr = reader.readLine();
+		if(pilihStr.equals("1")){
+			hris.approve(deptHead, training);
+		}else if(pilihStr.equals("2")){
+			hris.reject(deptHead, training);
+		}
+		writeDataHris();
+		
+	}
+	
+	public static void menuApproveRejectTraining(DivHead divHead) throws IOException{
+		hris.getKelolaTraining().tampilkanDaftarTraining(divHead);
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Anda akan melakukan approval Training");
+		System.out.print("Masukkan id training yang akan di approve/reject : ");
+		String idTrainingStr = reader.readLine();
+		
+		Training training = hris.getKelolaTraining().cariTrainingMenurutId(divHead, Integer.parseInt(idTrainingStr));
+		
+		System.out.println("");
+		System.out.println("");
+		
+		if(training==null){
+			System.out.println("Maaf Data Training tidak ditemukan!");
+		}else{
+
+			SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
+			
+			System.out.println("Data Training Staff adalah sebagai berikut : ");
+			System.out.println("id pegawai         : " + training.getStaff().getIdPegawai());
+			System.out.println("nama               : " + training.getStaff().getNama());
+			System.out.println("tanggal pengajuan  : " + sdf.format(training.getTanggalPengajuan()));
+			System.out.println("tanggal lembur     : " + sdf.format(training.getTanggalTraining()));
+			System.out.println("nama training      : " + training.getNama());
+			System.out.println("nama lokasi        : " + training.getLokasi());
+			System.out.println("approval depthead  : " + training.getStatusApprovalDeptHead());
+		}
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("pilih 1 untuk approve     ");
+		System.out.println("pilih 2 untuk reject      ");
+		System.out.print("pilih : ");
+		String pilihStr = reader.readLine();
+		if(pilihStr.equals("1")){
+			hris.approve(divHead, training);
+		}else if(pilihStr.equals("2")){
+			hris.reject(divHead, training);
 		}
 		writeDataHris();
 		
 	}
 	
 	public static void menuApproveRejectLembur(DivHead divHead) throws IOException{
-		hris.printDaftarLembur(divHead);
+		hris.getKelolaLembur().tampilkanDaftarLembur(divHead);
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Anda akan melakukan approval Lembur");
 		System.out.print("Masukkan id lembur yang akan di approve/reject : ");
 		String idLemburStr = reader.readLine();
 		
-		Lembur lembur = hris.getLemburByDivHeadAndId(divHead, Integer.parseInt(idLemburStr));
+		Lembur lembur = hris.getKelolaLembur().cariLemburMenurutId(divHead, Integer.parseInt(idLemburStr));
 		
 		System.out.println("");
 		System.out.println("");
@@ -236,9 +356,9 @@ public class Main {
 		System.out.print("pilih : ");
 		String pilihStr = reader.readLine();
 		if(pilihStr.equals("1")){
-			hris.approveLembur(divHead, lembur);
+			hris.approve(divHead, lembur);
 		}else if(pilihStr.equals("2")){
-			hris.rejectLembur(divHead, lembur);
+			hris.reject(divHead, lembur);
 		}
 		writeDataHris();
 		
@@ -260,7 +380,7 @@ public class Main {
 		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy hh.mm");
 		
 		try {
-			hris.ajukanLembur(staff, sdf.parse(tanggalLemburStr), sdf.parse(tanggalLemburStr), sdf.parse(jamSelesaiLemburStr), keterangan, Hris.NEW);
+			hris.getKelolaLembur().ajukanLembur(staff, sdf.parse(tanggalLemburStr), sdf.parse(tanggalLemburStr), sdf.parse(jamSelesaiLemburStr), keterangan, Hris.NEW);
 			writeDataHris();
 			System.out.println("saving....");
 		} catch (ParseException e) {
@@ -275,13 +395,51 @@ public class Main {
 		System.out.println("");
 		System.out.println("");
 		
-		Lembur lembur = hris.getLemburByStaffAndId(staff,Integer.parseInt(idLemburStr));
+		Lembur lembur = hris.getKelolaLembur().cariLemburMenurutId(staff,Integer.parseInt(idLemburStr));
 		
 		if(lembur==null){
 			System.out.println("Maaf Data Lembur Anda tidak ditemukan!");
 		}else{
 			System.out.println("Status Approval Lembur DeptHead anda adalah : "+lembur.getStatusApprovalDeptHead());
 			System.out.println("Status Approval Lembur DivHead anda adalah  : "+lembur.getStatusApprovalDivHead());
+		}
+		
+	}
+	
+	public static void menuAjukanTraining(Staff staff) throws IOException{
+		System.out.println("Anda akan mengajukan Training");
+		System.out.print("Masukkan tanggal Training dd/mm/yyyy : ");
+		String tanggalTrainingStr = reader.readLine();
+		System.out.print("Masukkan nama training               : ");
+		String namaTraining = reader.readLine();
+		System.out.print("Masukkan lokasi training             : ");
+		String tempatTraining = reader.readLine();
+		
+		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			hris.getKelolaTraining().ajukanTraining(staff, sdf.parse(tanggalTrainingStr), tempatTraining, namaTraining, Hris.NEW);
+			writeDataHris();
+			System.out.println("saving....");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void menuStatusTraining(Staff staff) throws IOException{
+		System.out.println("Anda akan melihat status Training");
+		System.out.print("Masukkan id Training anda :");
+		String idLemburStr = reader.readLine();
+		System.out.println("");
+		System.out.println("");
+		
+		Training training = hris.getKelolaTraining().cariTrainingMenurutId(staff,Integer.parseInt(idLemburStr));
+		
+		if(training==null){
+			System.out.println("Maaf Data Training Anda tidak ditemukan!");
+		}else{
+			System.out.println("Status Approval Training DeptHead anda adalah : "+training.getStatusApprovalDeptHead());
+			System.out.println("Status Approval Training DivHead anda adalah  : "+training.getStatusApprovalDivHead());
 		}
 		
 	}

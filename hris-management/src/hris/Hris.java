@@ -1,8 +1,6 @@
 package hris;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -13,15 +11,94 @@ public class Hris implements Serializable{
 	public static final String REJECTED = "REJECTED";
 	private List<Division> listDivision = new ArrayList<Division>();
 	private List<Pegawai> listPegawai = new ArrayList<Pegawai>();
-	private List<Lembur> listLembur = new ArrayList<Lembur>();
-	private List<Training> listTraining = new ArrayList<Training>();
+	private KelolaLembur kelolaLembur = new KelolaLembur();
+	private KelolaTraining kelolaTraining = new KelolaTraining();
+	private KelolaEvent kelolaEvent = new KelolaEvent();
+	private Hrd hrd = new Hrd();
 
+	public void approve(DivHead divHead, Lembur lembur){
+		kelolaLembur.approveLembur(divHead, lembur);
+	}
+	
+	public void approve(DeptHead deptHead, Lembur lembur){
+		kelolaLembur.approveLembur(deptHead, lembur);
+	}
+	
+	public void reject(DivHead divHead, Lembur lembur){
+		kelolaLembur.rejectLembur(divHead, lembur);
+	}
+	
+	public void reject(DeptHead deptHead, Lembur lembur){
+		kelolaLembur.rejectLembur(deptHead, lembur);
+	}
+	
+	public void approve(DivHead divHead, Training training){
+		kelolaTraining.approveTraining(divHead, training);
+	}
+	
+	public void approve(DeptHead deptHead, Training training){
+		kelolaTraining.approveTraining(deptHead, training);
+	}
+	
+	public void reject(DivHead divHead, Training training){
+		kelolaTraining.rejectTraining(divHead, training);
+	}
+	
+	public void reject(DeptHead deptHead, Training training){
+		kelolaTraining.rejectTraining(deptHead, training);
+	}
+	
 	public List<Pegawai> getListPegawai() {
 		return listPegawai;
 	}
 
 	public void setListPegawai(List<Pegawai> listPegawai) {
 		this.listPegawai = listPegawai;
+	}
+	
+	private void printHeaderStaff(Department department){
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Daftar Staff Department: " + department.getNama());
+		System.out.println("=======================================================================================================================================");
+		System.out.println("id   |nama staff         |email                              |no. tlp           |alamat                                                ");
+		System.out.println("=======================================================================================================================================");
+	}
+	
+	private void printHeaderStaff(Division division){
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Daftar Staff Division: " + division.getNama());
+		System.out.println("=======================================================================================================================================");
+		System.out.println("id   |nama staff         |department                |email                              |no. tlp           |alamat                                                ");
+		System.out.println("=======================================================================================================================================");
+	}
+	
+	public void tampilkanDaftarStaff(Department department){
+		printHeaderStaff(department);
+		for(Staff staff : department.getListStaff()){
+			System.out.println(addPad(""+staff.getIdPegawai(),5) + "|" + addPad(staff.getNama(), 19) + "|" + addPad(""+staff.getEmail(),35) + "|" + addPad(staff.getTlp(),18) + "|" + addPad(staff.getAlamat(),54));
+		}
+	}
+	
+	public void tampilkanDaftarStaff(Division division){
+		printHeaderStaff(division);
+		for(Department department:division.getListDepartment()){
+			for(Staff staff : department.getListStaff()){
+				System.out.println(addPad(""+staff.getIdPegawai(),5) + "|" + addPad(staff.getNama(), 19) + "|" + addPad(department.getNama(), 26) + "|" + addPad(""+staff.getEmail(),35) + "|" + addPad(staff.getTlp(),18) + "|" + addPad(staff.getAlamat(),54));
+			}
+		}
+	}
+	
+	public boolean isHrd(Pegawai pegawai){
+		for(Staff staff:hrd.getListStaff()){
+			if(staff.getIdPegawai()==pegawai.getIdPegawai()){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public Pegawai getPegawaiById(int id){
@@ -42,7 +119,7 @@ public class Hris implements Serializable{
 		return null;
 	}
 	
-	public void addPegawai(Pegawai pegawai){
+	public void tambahPegawai(Pegawai pegawai){
 		listPegawai.add(pegawai);
 	}
 
@@ -66,329 +143,24 @@ public class Hris implements Serializable{
 
 		}
 	}
-	
-	public void approveLembur(DeptHead deptHead,Lembur lembur){
-		lembur.setApprovadDeptHeadOn(new Date());
-		lembur.setApprovedDeptHeadBy(deptHead);
-		lembur.setStatusApprovalDeptHead(APPROVED);
+
+	public KelolaLembur getKelolaLembur() {
+		return kelolaLembur;
+	}
+
+	public void setKelolaLembur(KelolaLembur kelolaLembur) {
+		this.kelolaLembur = kelolaLembur;
+	}
+
+	public KelolaTraining getKelolaTraining() {
+		return kelolaTraining;
+	}
+
+	public void setKelolaTraining(KelolaTraining kelolaTraining) {
+		this.kelolaTraining = kelolaTraining;
 	}
 	
-	public void rejectLembur(DeptHead deptHead,Lembur lembur){
-		lembur.setApprovadDeptHeadOn(new Date());
-		lembur.setApprovedDeptHeadBy(deptHead);
-		lembur.setStatusApprovalDeptHead(REJECTED);
-	}
-	
-	public void approveLembur(DivHead divHead,Lembur lembur){
-		lembur.setApprovadDivHeadOn(new Date());
-		lembur.setApprovedDivHeadBy(divHead);
-		lembur.setStatusApprovalDivHead(APPROVED);
-	}
-	
-	public void rejectTraining(DivHead divHead,Training training){
-		training.setApprovadDivHeadOn(new Date());
-		training.setApprovedDivHeadBy(divHead);
-		training.setStatusApprovalDivHead(REJECTED);
-	}
-	
-	public void approveTraining(DeptHead deptHead,Training training){
-		training.setApprovadDeptHeadOn(new Date());
-		training.setApprovedDeptHeadBy(deptHead);
-		training.setStatusApprovalDeptHead(APPROVED);
-	}
-	
-	public void rejectTraining(DeptHead deptHead,Training training){
-		training.setApprovadDeptHeadOn(new Date());
-		training.setApprovedDeptHeadBy(deptHead);
-		training.setStatusApprovalDeptHead(REJECTED);
-	}
-	
-	public void approveTraining(DivHead divHead,Training training){
-		training.setApprovadDivHeadOn(new Date());
-		training.setApprovedDivHeadBy(divHead);
-		training.setStatusApprovalDivHead(APPROVED);
-	}
-	
-	public void rejectLembur(DivHead divHead,Lembur lembur){
-		lembur.setApprovadDivHeadOn(new Date());
-		lembur.setApprovedDivHeadBy(divHead);
-		lembur.setStatusApprovalDivHead(REJECTED);
-	}
-	
-	public void ajukanLembur(Staff staff, Date tanggalLembur, Date jamMulai, Date jamSelesai, String keterangan, String status){
-		Lembur lembur = new Lembur();
-		lembur.setIdLembur(listLembur.size()+1);
-		lembur.setTanggalPengajuan(new Date());
-		lembur.setTanggalLembur(tanggalLembur);
-		lembur.setJamMulai(jamMulai);
-		lembur.setJamSelesai(jamSelesai);
-		lembur.setKeterangan(keterangan);
-		lembur.setStaff(staff);
-		lembur.setStatusApprovalDeptHead(status);
-		lembur.setStatusApprovalDivHead(status);
-		
-		this.listLembur.add(lembur);
-	}
-	
-	public void ajukanTraining(Staff staff, Date tanggalTraining, Date jamMulai, Date jamSelesai, String namaTraining, String status){
-		Training training = new Training();
-		training.setNama(namaTraining);
-		training.setIdTraining(listLembur.size()+1);
-		training.setTanggalPengajuan(new Date());
-		training.setTanggalTraining(tanggalTraining);
-		training.setStaff(staff);
-		training.setStatusApprovalDeptHead(status);
-		training.setStatusApprovalDivHead(status);
-		
-		this.listTraining.add(training);
-	}
-	
-	public List<Lembur> getListLembur() {
-		return listLembur;
-	}
-	
-	public void setListLembur(List<Lembur> listLembur) {
-		this.listLembur = listLembur;
-	}
-	
-	public void printDaftarStaff(Department department){
-		printHeaderStaff(department);
-		for(Staff staff : department.getListStaff()){
-			System.out.println(addPad(""+staff.getIdPegawai(),5) + "|" + addPad(staff.getNama(), 19) + "|" + addPad(""+staff.getEmail(),35) + "|" + addPad(staff.getTlp(),18) + "|" + addPad(staff.getAlamat(),54));
-		}
-	}
-	
-	public void printDaftarStaff(Division division){
-		printHeaderStaff(division);
-		for(Department department:division.getListDepartment()){
-			for(Staff staff : department.getListStaff()){
-				System.out.println(addPad(""+staff.getIdPegawai(),5) + "|" + addPad(staff.getNama(), 19) + "|" + addPad(department.getNama(), 26) + "|" + addPad(""+staff.getEmail(),35) + "|" + addPad(staff.getTlp(),18) + "|" + addPad(staff.getAlamat(),54));
-			}
-		}
-	}
-	
-	public void printDaftarLembur(DeptHead deptHead){
-		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat sdfTime= new SimpleDateFormat("hh.mm");
-		
-		printHeaderLembur(deptHead);
-		
-		for(Lembur lembur : listLembur){
-			//System.out.println(lembur);
-			if(lembur.getStaff().getDepartment().getId()==deptHead.getDepartment().getId() && lembur.getStatusApprovalDeptHead().equals(NEW)){
-				//String.format(" ", "", lembur.getIdLembur());
-				System.out.println(addPad(""+lembur.getIdLembur(),5) + "|" 
-						+ addPad(lembur.getStatusApprovalDeptHead(), 7) + "|" 
-						+ addPad(""+lembur.getStaff().getNama(),19) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalLembur()),15) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalPengajuan()),18) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamMulai()),10) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamSelesai()),12) + "|" 
-						+ lembur.getKeterangan());
-			}
-		}
-	}
-	
-	public void printDaftarLembur(DivHead divHead){
-		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat sdfTime= new SimpleDateFormat("hh.mm");
-		
-		printHeaderLembur(divHead);
-		
-		for(Lembur lembur : listLembur){
-			//System.out.println(lembur);
-			if(lembur.getStaff().getDepartment().getDivision().getId()==divHead.getDivision().getId() && lembur.getStatusApprovalDivHead().equals(NEW)){
-				//String.format(" ", "", lembur.getIdLembur());
-				System.out.println(addPad(""+lembur.getIdLembur(),5) + "|" 
-						+ addPad(lembur.getStatusApprovalDeptHead(), 7) + "|" 
-						+ addPad(lembur.getStatusApprovalDivHead(), 10) + "|"  
-						+ addPad(""+lembur.getStaff().getNama(),19) + "|" 
-						+ addPad(""+lembur.getStaff().getDepartment().getNama(),25) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalLembur()),15) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalPengajuan()),18) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamMulai()),10) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamSelesai()),12) + "|" 
-						+ lembur.getKeterangan());
-			}
-		}
-	}
-	
-	private void printHeaderStaff(Department department){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Daftar Staff Department: " + department.getNama());
-		System.out.println("=======================================================================================================================================");
-		System.out.println("id   |nama staff         |email                              |no. tlp           |alamat                                                ");
-		System.out.println("=======================================================================================================================================");
-	}
-	
-	private void printHeaderStaff(Division division){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Daftar Staff Division: " + division.getNama());
-		System.out.println("=======================================================================================================================================");
-		System.out.println("id   |nama staff         |department                |email                              |no. tlp           |alamat                                                ");
-		System.out.println("=======================================================================================================================================");
-	}
-	
-	private void printHeaderLembur(DeptHead deptHead){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Daftar Lembur Department: " + deptHead.getDepartment().getNama());
-		System.out.println("========================================================================================================");
-		System.out.println("id   |status |nama staff         |tanggal lembur |tanggal pengajuan |jam mulai |jam selesai |keterangan ");
-		System.out.println("========================================================================================================");
-	}
-	
-	private void printHeaderLembur(DivHead divHead){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Daftar Lembur Division: " + divHead.getDivision().getNama());
-		System.out.println("==================================================================================================================================");
-		System.out.println("id   |status depthead |status    |nama staff         |department               |tanggal lembur |tanggal pengajuan |jam mulai |jam selesai |keterangan ");
-		System.out.println("==================================================================================================================================");
-	}
-	
-	private void printHeaderLembur(Staff staff){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("History Lembur : " + staff.getNama());
-		System.out.println("==============================================================================================================================");
-		System.out.println("id   |status depthead |status divhead |tanggal lembur |tanggal pengajuan |jam mulai |jam selesai |keterangan                  ");
-		System.out.println("==============================================================================================================================");
-	}
-	
-	private void printHeaderTraining(Staff staff){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("History Training : " + staff.getNama());
-		System.out.println("=========================================================================================================");
-		System.out.println("id   |status depthead |status divhead |tanggal Training |tanggal pengajuan |nama training                ");
-		System.out.println("=========================================================================================================");
-	}
-	
-	private void printHeaderTraining(DivHead divHead){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Daftar Training Division: " + divHead.getDivision().getNama());
-		System.out.println("=========================================================================================================");
-		System.out.println("id   |status depthead |status divhead |tanggal Training |tanggal pengajuan |nama training                ");
-		System.out.println("=========================================================================================================");
-	}
-	
-	private void printHeaderTraining(DeptHead deptHead){
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("Daftar Training Department: " + deptHead.getDepartment().getNama());
-		System.out.println("=========================================================================================================");
-		System.out.println("id   |status depthead |status divhead |tanggal Training |tanggal pengajuan |nama training                ");
-		System.out.println("=========================================================================================================");
-	}
-	
-	public void printHistoryLembur(DivHead divHead){
-		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat sdfTime= new SimpleDateFormat("hh.mm");
-		
-		printHeaderLembur(divHead);
-		
-		for(Lembur lembur : listLembur){
-			//System.out.println(lembur);
-			if(lembur.getStaff().getDepartment().getDivision().getId()==divHead.getDivision().getId()){
-				//String.format(" ", "", lembur.getIdLembur());
-				System.out.println(addPad(""+lembur.getIdLembur(),5) + "|" 
-						+ addPad(lembur.getStatusApprovalDeptHead(), 16) + "|" 
-						+ addPad(lembur.getStatusApprovalDivHead(), 10) + "|" 
-						+ addPad(""+lembur.getStaff().getNama(),19) + "|" 
-						+ addPad(""+lembur.getStaff().getDepartment().getNama(),25) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalLembur()),15) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalPengajuan()),18) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamMulai()),10) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamSelesai()),12) + "|" 
-						+ lembur.getKeterangan());
-			}
-		}
-	}
-	
-	public void printHistoryLembur(DeptHead deptHead){
-		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat sdfTime= new SimpleDateFormat("hh.mm");
-		
-		printHeaderLembur(deptHead);
-		
-		for(Lembur lembur : listLembur){
-			//System.out.println(lembur);
-			if(lembur.getStaff().getDepartment().getId()==deptHead.getDepartment().getId()){
-				//String.format(" ", "", lembur.getIdLembur());
-				System.out.println(addPad(""+lembur.getIdLembur(),5) + "|" 
-						+ addPad(lembur.getStatusApprovalDeptHead(), 7) + "|" 
-						+ addPad(""+lembur.getStaff().getNama(),19) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalLembur()),15) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalPengajuan()),18) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamMulai()),10) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamSelesai()),12) + "|" 
-						+ lembur.getKeterangan());
-			}
-		}
-	}
-	
-	public void printHistoryLembur(Staff staff){
-		SimpleDateFormat sdf 	= new SimpleDateFormat("dd/MM/yyyy");
-		SimpleDateFormat sdfTime= new SimpleDateFormat("hh.mm");
-		
-		printHeaderLembur(staff);
-		
-		for(Lembur lembur : listLembur){
-			//System.out.println(lembur);
-			if(lembur.getStaff().getIdPegawai()==staff.getIdPegawai()){
-				//String.format(" ", "", lembur.getIdLembur());
-				System.out.println(addPad(""+lembur.getIdLembur(),5) + "|" 
-						+ addPad(lembur.getStatusApprovalDeptHead(), 16) + "|" 
-						+ addPad(lembur.getStatusApprovalDivHead(), 15) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalLembur()),15) + "|" 
-						+ addPad(sdf.format(lembur.getTanggalPengajuan()),18) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamMulai()),10) + "|" 
-						+ addPad(sdfTime.format(lembur.getJamSelesai()),12) + "|" 
-						+ lembur.getKeterangan());
-			}
-		}
-	}
-	
-	public Lembur getLemburByStaffAndId(Staff staff,int id){
-		for(Lembur lembur : listLembur){
-			if(lembur.getStaff().getIdPegawai()==staff.getIdPegawai() && lembur.getIdLembur()==id){
-				return lembur;
-			}
-		}
-		return null;
-	}
-	
-	public Lembur getLemburByDeptHeadAndId(DeptHead deptHead,int id){
-		for(Lembur lembur : listLembur){
-			if(lembur.getStaff().getDepartment().getDeptHead()==deptHead && lembur.getIdLembur()==id){
-				return lembur;
-			}
-		}
-		return null;
-	}
-	
-	public Lembur getLemburByDivHeadAndId(DivHead divHead,int id){
-		for(Lembur lembur : listLembur){
-			if(lembur.getStaff().getDepartment().getDivision().getDivHead()==divHead && lembur.getIdLembur()==id){
-				return lembur;
-			}
-		}
-		return null;
-	}
-	
-	public String addPad(String str,int number){
+	private String addPad(String str,int number){
 		StringBuffer sb = new StringBuffer();
 		for(int i=0;i<number;i++){
 			if(str.length()>i){
@@ -398,5 +170,21 @@ public class Hris implements Serializable{
 			}
 		}
 		return sb.toString();
+	}
+
+	public Hrd getHrd() {
+		return hrd;
+	}
+
+	public void setHrd(Hrd hrd) {
+		this.hrd = hrd;
+	}
+
+	public KelolaEvent getKelolaEvent() {
+		return kelolaEvent;
+	}
+
+	public void setKelolaEvent(KelolaEvent kelolaEvent) {
+		this.kelolaEvent = kelolaEvent;
 	}
 }
