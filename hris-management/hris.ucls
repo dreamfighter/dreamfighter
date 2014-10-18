@@ -1,203 +1,371 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="hris.Pegawai" project="hris-management" 
-    file="/hris-management/src/hris/Pegawai.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="367" width="239" x="753" y="1186"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+  <class id="1" language="java" name="hris.Main" project="hris-management" file="/hris-management/src/hris/Main.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="168" y="179"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="false" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="hris.Staff" project="hris-management" file="/hris-management/src/hris/Staff.java" 
+  <class id="2" language="java" name="hris.Hris" project="hris-management" file="/hris-management/src/hris/Hris.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="133" width="184" x="268" y="1870"/>    
+    <position height="627" width="260" x="41" y="362"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="hris.DeptHead" project="hris-management" 
-    file="/hris-management/src/hris/DeptHead.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="133" width="184" x="44" y="1870"/>    
+  <class id="3" language="java" name="hris.KelolaLembur" project="hris-management" 
+    file="/hris-management/src/hris/KelolaLembur.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="169" y="1283"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="hris.DivHead" project="hris-management" 
-    file="/hris-management/src/hris/DivHead.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="133" width="142" x="492" y="1870"/>    
+  <class id="4" language="java" name="hris.KelolaTraining" project="hris-management" 
+    file="/hris-management/src/hris/KelolaTraining.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="665" y="672"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="hris.Department" project="hris-management" 
-    file="/hris-management/src/hris/Department.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="202" y="2508"/>    
+  <class id="5" language="java" name="hris.KelolaEvent" project="hris-management" 
+    file="/hris-management/src/hris/KelolaEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="645" y="1029"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="hris.Division" project="hris-management" 
-    file="/hris-management/src/hris/Division.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="724" y="2350"/>    
+  <class id="6" language="java" name="hris.Training" project="hris-management" 
+    file="/hris-management/src/hris/Training.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1122" y="675"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
   <class id="7" language="java" name="hris.Lembur" project="hris-management" 
     file="/hris-management/src/hris/Lembur.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="745" width="226" x="129" y="1085"/>    
-    <display autosize="true" stereotype="false" package="false" initial-value="true" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="false"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="hris.Main" project="hris-management" file="/hris-management/src/hris/Main.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="662" y="150"/>    
-    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="hris.Hris" project="hris-management" file="/hris-management/src/hris/Hris.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="574" width="291" x="527" y="342"/>    
+    <position height="-1" width="-1" x="1020" y="1277"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
-      <attributes public="true" package="false" protected="true" private="false" static="true"/>      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
       <operations public="true" package="true" protected="true" private="false" static="true"/>    
     </display>  
   </class>  
-  <association id="10">    
-    <end type="SOURCE" refId="5" navigable="true">      
-      <attribute id="11" name="listStaff"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true">      
-      <attribute id="13" name="department"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
-    </end>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="15">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="16" name="approvedDivHeadBy"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <class id="8" language="java" name="hris.Event" project="hris-management" file="/hris-management/src/hris/Event.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="651" y="1624"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="hris.DokumentasiEvent" project="hris-management" 
+    file="/hris-management/src/hris/DokumentasiEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="917" y="1625"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="hris.Staff" project="hris-management" file="/hris-management/src/hris/Staff.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="131" y="1548"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="hris.Pegawai" project="hris-management" 
+    file="/hris-management/src/hris/Pegawai.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="414" y="1627"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="hris.DeptHead" project="hris-management" 
+    file="/hris-management/src/hris/DeptHead.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="133" y="1684"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="hris.DivHead" project="hris-management" 
+    file="/hris-management/src/hris/DivHead.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="166" y="2175"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="hris.Department" project="hris-management" 
+    file="/hris-management/src/hris/Department.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-167" y="1638"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="hris.Division" project="hris-management" 
+    file="/hris-management/src/hris/Division.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-166" y="1210"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="hris.Hrd" project="hris-management" file="/hris-management/src/hris/Hrd.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-172" y="674"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="hris.Aktifitas" project="hris-management" 
+    file="/hris-management/src/hris/Aktifitas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="664" y="2172"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="false" protected="true" private="true" static="false"/>      
+      <operations public="true" package="true" protected="true" private="false" static="true"/>    
+    </display>  
+  </class>  
   <association id="18">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="19" name="listDivision"/>      
+    <end type="SOURCE" refId="15" navigable="true">      
+      <attribute id="19" name="listDepartment"/>      
       <multiplicity id="20" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true">      
+      <attribute id="21" name="division"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="5" navigable="true">      
-      <attribute id="22" name="deptHead"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true">      
-      <attribute id="24" name="department"/>      
+  <association id="23">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="24" name="kelolaTraining"/>      
       <multiplicity id="25" minimum="0" maximum="1"/>    
     </end>    
-    <display labels="true" multiplicity="true"/>  
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
   </association>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="28">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="29" name="approvedDeptHeadBy"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+  <association id="26">    
+    <bendpoint x="283" y="2029"/>    
+    <bendpoint x="300" y="1615"/>    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="27" name="staff"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="31">    
+  <association id="29">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="30" name="approvedDivHeadBy"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="12" navigable="true">      
+      <attribute id="33" name="department"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true">      
+      <attribute id="35" name="deptHead"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <bendpoint x="134" y="2039"/>    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="38" name="approvedDeptHeadBy"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="41" name="hris"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <bendpoint x="-167" y="893"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="44" name="listDivision"/>      
+      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <bendpoint x="174" y="1033"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="47" name="kelolaEvent"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="32" name="hris"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <attribute id="50" name="dokumentasi"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="35" name="staff"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
+  <association id="52">    
+    <bendpoint x="-30" y="854"/>    
+    <bendpoint x="-29" y="1486"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="53" name="listStaff"/>      
+      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="37">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="38">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="39" name="listPegawai"/>      
-      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="6" navigable="true">      
-      <attribute id="42" name="divHead"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true">      
-      <attribute id="44" name="division"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="47" name="listLembur"/>      
-      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
+  <association id="55">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="56" name="listLembur"/>      
+      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="5" navigable="true">      
-      <attribute id="50" name="division"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
+  <association id="58">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="59" name="hrd"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true">      
-      <attribute id="52" name="listDepartment"/>      
-      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="62" name="kelolaLembur"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
     </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <generalization id="64">    
+    <bendpoint x="1125" y="1087"/>    
+    <bendpoint x="1129" y="2176"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="65">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="66" name="listTraining"/>      
+      <multiplicity id="67" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <generalization id="68">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="69">    
+    <bendpoint x="-52" y="1405"/>    
+    <bendpoint x="-50" y="2178"/>    
+    <end type="SOURCE" refId="15" navigable="true">      
+      <attribute id="70" name="divHead"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true">      
+      <attribute id="72" name="division"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
+    </end>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <generalization id="74">    
+    <bendpoint x="1020" y="1487"/>    
+    <bendpoint x="1030" y="2176"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="75">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="76" name="peserta"/>      
+      <multiplicity id="77" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="14" navigable="true">      
+      <attribute id="79" name="listStaff"/>      
+      <multiplicity id="80" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true">      
+      <attribute id="81" name="department"/>      
+      <multiplicity id="82" minimum="0" maximum="1"/>    
+    </end>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="84" name="events"/>      
+      <multiplicity id="85" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <generalization id="86">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <generalization id="87">    
+    <bendpoint x="419" y="2175"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="88">    
+    <bendpoint x="177" y="990"/>    
+    <bendpoint x="410" y="987"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="89" name="listPegawai"/>      
+      <multiplicity id="90" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="false" protected="true" private="true" static="false"/>    
-    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+    <operations public="true" package="true" protected="true" private="false" static="true"/>  
   </classifier-display>  
   <association-display labels="false" multiplicity="true"/>
 </class-diagram>
